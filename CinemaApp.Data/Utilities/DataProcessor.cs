@@ -44,12 +44,11 @@ namespace CinemaApp.Data.Utilities
         {
             this.SeedRoles();
             this.SeedUsers();
-
-            // TODO: Implement mechanism for detecting seeded data!
-            //await this.ImportMoviesFromJson();
-            //await this.ImportCinemasMoviesFromJson();
-            //await this.ImportTicketsFromXml();
-            //await this.ImportWatchlistFromXml();
+            
+            await this.ImportMoviesFromJson();
+            await this.ImportCinemasMoviesFromJson();
+            await this.ImportTicketsFromXml();
+            await this.ImportWatchlistFromXml();
         }
 
         private async Task ImportMoviesFromJson()
@@ -65,6 +64,11 @@ namespace CinemaApp.Data.Utilities
                 {
                     await this.dbContext.Movies.AddRangeAsync(movies);
                     await this.dbContext.SaveChangesAsync();
+                }
+                else
+                {
+                    // Log warning message
+                    this.logger.LogWarning(EntityInstanceAlreadyExist);
                 }
             }
         }
@@ -225,6 +229,19 @@ namespace CinemaApp.Data.Utilities
                             continue;
                         }
 
+                        bool ticketExists = await this.dbContext
+                            .Tickets
+                            .AnyAsync(t => t.ApplicationUserId == ticketUser.Id &&
+                                           t.CinemaMovieId == ticketCinemaMovie.Id);
+                        if (ticketExists)
+                        {
+                            // Log warning message
+                            this.logger.LogWarning(EntityInstanceAlreadyExist);
+
+                            // Skip current DTO instance
+                            continue;
+                        }
+
                         Ticket newTicket = new Ticket()
                         {
                             Price = ticketPrice,
@@ -299,6 +316,19 @@ namespace CinemaApp.Data.Utilities
                             {
                                 // Log warning message
                                 this.logger.LogWarning(ReferencedEntityMissing);
+
+                                // Skip current Movie DTO instance
+                                continue;
+                            }
+
+                            bool watchListExists = await this.dbContext
+                                .ApplicationUserMovies
+                                .AnyAsync(um => um.MovieId == movie.Id &&
+                                           um.ApplicationUserId == user.Id);
+                            if (watchListExists)
+                            {
+                                // Log warning message
+                                this.logger.LogWarning(EntityInstanceAlreadyExist);
 
                                 // Skip current Movie DTO instance
                                 continue;
