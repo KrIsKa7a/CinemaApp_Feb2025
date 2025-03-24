@@ -12,5 +12,14 @@
 
         public const string EntityDataParseError =
             "Some of the entity data could not be parsed correctly! Please check your input file and formatting!";
+
+        public const string FailedToCreateRole =
+            "Failed to create role: {0}";
+
+        public const string FailedToCreateUser =
+            "Failed to create user: {0}";
+
+        public const string FailedToAssignUserToRole =
+            "Failed to assign {0} role to user: {1}";
     }
 }

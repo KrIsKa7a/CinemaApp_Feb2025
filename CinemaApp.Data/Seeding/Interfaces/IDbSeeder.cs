@@ -1,4 +1,4 @@
-﻿namespace CinemaApp.Data.Utilities.Interfaces
+﻿namespace CinemaApp.Data.Seeding.Interfaces
 {
     public interface IDbSeeder
     {

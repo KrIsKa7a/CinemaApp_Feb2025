@@ -1,5 +1,7 @@
 using CinemaApp.Data;
 using CinemaApp.Data.Models;
+using CinemaApp.Data.Seeding;
+using CinemaApp.Data.Seeding.Interfaces;
 using CinemaApp.Data.Utilities;
 using CinemaApp.Data.Utilities.Interfaces;
 
@@ -15,7 +17,7 @@ builder.Services.AddDbContext<CinemaDbContext>(options =>
 
 builder.Services.AddScoped<IValidator, EntityValidator>();
 builder.Services.AddSingleton<IXmlHelper, XmlHelper>();
-builder.Services.AddScoped<IDbSeeder, DataProcessor>();
+builder.Services.AddScoped<IDbSeeder, ApplicationDbContextSeeder>();
 
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
