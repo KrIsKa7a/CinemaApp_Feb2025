@@ -81,5 +81,18 @@
             /// </summary>
             public const int ImageUrlMaxLength = 2048;
         }
+
+        public static class ApplicationUser
+        {
+            /// <summary>
+            /// User email should be used as a username. User email should have length of at least 5 characters
+            /// </summary>
+            public const int UsernameMinLength = 5;
+
+            /// <summary>
+            /// User email should be used as a username. User email can have length up to 256 characters
+            /// </summary>
+            public const int UsernameMaxLength = 256;
+        }
     }
 }

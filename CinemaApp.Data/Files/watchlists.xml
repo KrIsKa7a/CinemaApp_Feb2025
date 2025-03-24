@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Users>
-	<User UserId="">
+	<User Username="appUser@example.com">
 		<Movies>
 			<Movie Title="Inception" />
 			<Movie Title="The Dark Knight" />
@@ -10,7 +10,7 @@
 			<Movie Title="Pulp Fiction" />
 		</Movies>
 	</User>
-	<User UserId="">
+	<User Username="appUser@example.com">
 		<Movies>
 			<Movie Title="Avatar" />
 			<Movie Title="Gladiator" />
@@ -18,7 +18,7 @@
 			<Movie Title="Lord of the Rings" />
 		</Movies>
 	</User>
-	<User UserId="">
+	<User Username="admin@example.com">
 		<Movies>
 			<Movie Title="The Shawshank Redemption" />
 			<Movie Title="The Electric State" />

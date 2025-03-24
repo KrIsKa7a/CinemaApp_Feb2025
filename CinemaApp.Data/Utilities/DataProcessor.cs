@@ -49,6 +49,7 @@ namespace CinemaApp.Data.Utilities
             //await this.ImportMoviesFromJson();
             //await this.ImportCinemasMoviesFromJson();
             //await this.ImportTicketsFromXml();
+            //await this.ImportWatchlistFromXml();
         }
 
         private async Task ImportMoviesFromJson()
@@ -234,6 +235,85 @@ namespace CinemaApp.Data.Utilities
                     }
 
                     await this.dbContext.Tickets.AddRangeAsync(validTickets);
+                    await this.dbContext.SaveChangesAsync();
+                }
+            }
+            catch (Exception e)
+            {
+                this.logger.LogError(e.Message);
+                throw;
+            }
+        }
+
+        private async Task ImportWatchlistFromXml()
+        {
+            const string watchlistRootName = "Users";
+
+            string path = Path.Combine(AppContext.BaseDirectory, "Files", "watchlists.xml");
+            string watchlistStr = await File.ReadAllTextAsync(path);
+
+            try
+            {
+                UserWatchlistDto[]? watchlistDtos = xmlHelper
+                .Deserialize<UserWatchlistDto[]>(watchlistStr, watchlistRootName);
+                if (watchlistDtos != null && watchlistDtos.Length > 0)
+                {
+                    ICollection<ApplicationUserMovie> validWatchlists = new List<ApplicationUserMovie>();
+                    foreach (UserWatchlistDto watchlistDto in watchlistDtos)
+                    {
+                        if (!this.entityValidator.IsValid(watchlistDto))
+                        {
+                            // Log warning message
+                            this.logger.LogWarning(this.BuildEntityValidatorWarningMessage(nameof(ApplicationUserMovie)));
+
+                            // Skip current Watchlist DTO instance
+                            continue;
+                        }
+
+                        ApplicationUser? user = await this.userManager
+                            .FindByNameAsync(watchlistDto.Username);
+                        if (user == null)
+                        {
+                            // Log warning message
+                            this.logger.LogWarning(ReferencedEntityMissing);
+
+                            // Skip current Watchlist DTO instance
+                            continue;
+                        }
+
+                        foreach (UserWatchlistMovieDto movieDto in watchlistDto.Movies)
+                        {
+                            if (!this.entityValidator.IsValid(movieDto))
+                            {
+                                // Log warning message
+                                this.logger.LogWarning(this.BuildEntityValidatorWarningMessage(nameof(ApplicationUserMovie)));
+
+                                // Skip current Movie DTO instance
+                                continue;
+                            }
+
+                            Movie? movie = await this.dbContext
+                                .Movies
+                                .FirstOrDefaultAsync(m => m.Title == movieDto.Title);
+                            if (movie == null)
+                            {
+                                // Log warning message
+                                this.logger.LogWarning(ReferencedEntityMissing);
+
+                                // Skip current Movie DTO instance
+                                continue;
+                            }
+
+                            ApplicationUserMovie userMovie = new ApplicationUserMovie()
+                            {
+                                ApplicationUser = user,
+                                Movie = movie,
+                            };
+                            validWatchlists.Add(userMovie);
+                        }
+                    }
+
+                    await this.dbContext.ApplicationUserMovies.AddRangeAsync(validWatchlists);
                     await this.dbContext.SaveChangesAsync();
                 }
             }
