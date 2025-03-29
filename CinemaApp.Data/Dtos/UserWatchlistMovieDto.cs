@@ -1,11 +1,11 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.Xml.Serialization;
-
-using static CinemaApp.Common.Constants.EntityConstants;
-using static CinemaApp.Common.Constants.EntityConstants.Movie;
-
-namespace CinemaApp.Data.Dtos
+﻿namespace CinemaApp.Data.Dtos
 {
+    using System.ComponentModel.DataAnnotations;
+    using System.Xml.Serialization;
+
+    using static Common.Constants.EntityConstants;
+    using static Common.Constants.EntityConstants.Movie;
+
     [XmlType(nameof(Movie))]
     public class UserWatchlistMovieDto
     {

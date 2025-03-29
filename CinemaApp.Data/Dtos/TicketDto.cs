@@ -1,10 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.Xml.Serialization;
-
-using CinemaApp.Data.Models;
-
-namespace CinemaApp.Data.Dtos
+﻿namespace CinemaApp.Data.Dtos
 {
+    using System.ComponentModel.DataAnnotations;
+    using System.Xml.Serialization;
+
+    using Models;
+
     [XmlType(nameof(Ticket))]
     public class TicketDto
     {

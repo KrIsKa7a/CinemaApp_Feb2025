@@ -1,11 +1,10 @@
-﻿using CinemaApp.Data.Models;
-using CinemaApp.Common.Constants;
-
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
-
-namespace CinemaApp.Data.Configuration
+﻿namespace CinemaApp.Data.Configuration
 {
+    using Models;
+    using Common.Constants;
+
+    using Microsoft.EntityFrameworkCore;
+    using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
     internal class TicketConfiguration : IEntityTypeConfiguration<Ticket>
     {

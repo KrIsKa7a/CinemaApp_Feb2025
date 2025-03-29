@@ -1,10 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.Xml.Serialization;
-
-using static CinemaApp.Common.Constants.EntityConstants.ApplicationUser;
-
-namespace CinemaApp.Data.Dtos
+﻿namespace CinemaApp.Data.Dtos
 {
+    using System.ComponentModel.DataAnnotations;
+    using System.Xml.Serialization;
+
+    using static Common.Constants.EntityConstants.ApplicationUser;
+
     [XmlType("User")]
     public class UserWatchlistDto
     {

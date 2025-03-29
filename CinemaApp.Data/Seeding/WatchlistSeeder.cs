@@ -1,15 +1,15 @@
-﻿using CinemaApp.Data.Dtos;
-using CinemaApp.Data.Models;
-using CinemaApp.Data.Seeding.Interfaces;
-using CinemaApp.Data.Utilities.Interfaces;
-using static CinemaApp.Common.OutputMessages.ErrorMessages;
-
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
-
-namespace CinemaApp.Data.Seeding
+﻿namespace CinemaApp.Data.Seeding
 {
+    using Dtos;
+    using Models;
+    using Interfaces;
+    using CinemaApp.Data.Utilities.Interfaces;
+    using static Common.OutputMessages.ErrorMessages;
+
+    using Microsoft.AspNetCore.Identity;
+    using Microsoft.EntityFrameworkCore;
+    using Microsoft.Extensions.Logging;
+
     public class WatchlistSeeder : BaseSeeder<WatchlistSeeder>, IEntitySeeder, IXmlSeeder
     {
         private readonly CinemaDbContext dbContext;

@@ -1,11 +1,11 @@
-﻿using CinemaApp.Data.Models;
-using static CinemaApp.Common.Constants.EntityConstants.CinemaMovie;
-
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
-
-namespace CinemaApp.Data.Configuration
+﻿namespace CinemaApp.Data.Configuration
 {
+    using Models;
+    using static Common.Constants.EntityConstants.CinemaMovie;
+
+    using Microsoft.EntityFrameworkCore;
+    using Microsoft.EntityFrameworkCore.Metadata.Builders;
+
     internal class CinemaMovieConfiguration : IEntityTypeConfiguration<CinemaMovie>
     {
         public void Configure(EntityTypeBuilder<CinemaMovie> entity)

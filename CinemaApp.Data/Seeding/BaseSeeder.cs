@@ -1,13 +1,13 @@
-﻿using System.Text;
-
-using CinemaApp.Data.Seeding.Interfaces;
-using CinemaApp.Data.Utilities.Interfaces;
-using static CinemaApp.Common.OutputMessages.ErrorMessages;
-
-using Microsoft.Extensions.Logging;
-
-namespace CinemaApp.Data.Seeding
+﻿namespace CinemaApp.Data.Seeding
 {
+    using System.Text;
+
+    using Interfaces;
+    using CinemaApp.Data.Utilities.Interfaces;
+    using static Common.OutputMessages.ErrorMessages;
+
+    using Microsoft.Extensions.Logging;
+
     public abstract class BaseSeeder<T> : IBaseSeeder<T>
     {
         private readonly IValidator entityValidator;

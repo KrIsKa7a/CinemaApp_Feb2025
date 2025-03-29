@@ -1,9 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-using CinemaApp.Data.Utilities.Interfaces;
-
-namespace CinemaApp.Data.Utilities
+﻿namespace CinemaApp.Data.Utilities
 {
+    using System.ComponentModel.DataAnnotations;
+
+    using Interfaces;
+
     public class EntityValidator : IValidator
     {
         private ICollection<string> errorMessages;

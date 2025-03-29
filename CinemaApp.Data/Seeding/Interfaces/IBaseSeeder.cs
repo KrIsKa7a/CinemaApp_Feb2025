@@ -1,9 +1,9 @@
-﻿using CinemaApp.Data.Utilities.Interfaces;
-
-using Microsoft.Extensions.Logging;
-
-namespace CinemaApp.Data.Seeding.Interfaces
+﻿namespace CinemaApp.Data.Seeding.Interfaces
 {
+    using CinemaApp.Data.Utilities.Interfaces;
+
+    using Microsoft.Extensions.Logging;
+
     public interface IBaseSeeder<T>
     {
         public string FilePath { get; }

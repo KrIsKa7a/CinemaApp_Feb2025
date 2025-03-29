@@ -1,8 +1,8 @@
-﻿using System.Text;
-using System.Xml.Serialization;
-
-namespace CinemaApp.Data.Utilities
+﻿namespace CinemaApp.Data.Utilities
 {
+    using System.Text;
+    using System.Xml.Serialization;
+
     using Interfaces;
 
     public class XmlHelper : IXmlHelper

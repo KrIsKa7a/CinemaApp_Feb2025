@@ -1,16 +1,16 @@
-﻿using System.Text.Json;
-
-using CinemaApp.Data.Dtos;
-using CinemaApp.Data.Models;
-using CinemaApp.Data.Seeding.Interfaces;
-using CinemaApp.Data.Utilities.Interfaces;
-using static CinemaApp.Common.OutputMessages.ErrorMessages;
-
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
-
-namespace CinemaApp.Data.Seeding
+﻿namespace CinemaApp.Data.Seeding
 {
+    using System.Text.Json;
+
+    using Dtos;
+    using Models;
+    using Interfaces;
+    using CinemaApp.Data.Utilities.Interfaces;
+    using static Common.OutputMessages.ErrorMessages;
+
+    using Microsoft.EntityFrameworkCore;
+    using Microsoft.Extensions.Logging;
+
     public class CinemaMovieSeeder : BaseSeeder<CinemaMovieSeeder>, IEntitySeeder
     {
         private readonly CinemaDbContext dbContext;

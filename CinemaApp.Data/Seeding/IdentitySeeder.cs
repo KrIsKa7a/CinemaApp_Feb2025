@@ -1,13 +1,13 @@
-﻿using CinemaApp.Data.Models;
-using CinemaApp.Data.Seeding.Interfaces;
-using CinemaApp.Data.Utilities.Interfaces;
-using static CinemaApp.Common.OutputMessages.ErrorMessages;
-
-using Microsoft.AspNetCore.Identity;
-using Microsoft.Extensions.Logging;
-
-namespace CinemaApp.Data.Seeding
+﻿namespace CinemaApp.Data.Seeding
 {
+    using Models;
+    using Interfaces;
+    using CinemaApp.Data.Utilities.Interfaces;
+    using static Common.OutputMessages.ErrorMessages;
+
+    using Microsoft.AspNetCore.Identity;
+    using Microsoft.Extensions.Logging;
+
     public class IdentitySeeder : BaseSeeder<IdentitySeeder>, IEntitySeeder, 
         IIdentitySeeder<ApplicationUser, IdentityRole<Guid>>
     {

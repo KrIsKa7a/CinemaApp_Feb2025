@@ -1,9 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-using CinemaApp.Common.Constants;
-
-namespace CinemaApp.Data.Dtos
+﻿namespace CinemaApp.Data.Dtos
 {
+    using System.ComponentModel.DataAnnotations;
+
+    using Common.Constants;
+
     public class CinemaMovieDto
     {
         [Required]

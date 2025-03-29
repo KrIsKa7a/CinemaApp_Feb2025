@@ -1,7 +1,7 @@
-﻿using Microsoft.AspNetCore.Identity;
-
-namespace CinemaApp.Data.Seeding.Interfaces
+﻿namespace CinemaApp.Data.Seeding.Interfaces
 {
+    using Microsoft.AspNetCore.Identity;
+
     public interface IIdentitySeeder<TUser, TRole>
         where TUser : class, new()
         where TRole : class, new()

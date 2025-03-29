@@ -1,13 +1,13 @@
-﻿using System.Reflection;
-
-using CinemaApp.Data.Models;
-
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore;
-
-namespace CinemaApp.Data
+﻿namespace CinemaApp.Data
 {
+    using System.Reflection;
+
+    using Models;
+
+    using Microsoft.AspNetCore.Identity;
+    using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+    using Microsoft.EntityFrameworkCore;
+
     public class CinemaDbContext : IdentityDbContext<ApplicationUser, IdentityRole<Guid>, Guid>
     {
         // This constructor is introduced for debugging purposes
