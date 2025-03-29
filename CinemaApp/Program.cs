@@ -19,6 +19,13 @@ builder.Services.AddScoped<IValidator, EntityValidator>();
 builder.Services.AddSingleton<IXmlHelper, XmlHelper>();
 builder.Services.AddScoped<IDbSeeder, ApplicationDbContextSeeder>();
 
+// TODO: Introduce extension method for run-time detection and registration of seeders
+builder.Services.AddScoped<CinemaMovieSeeder>();
+builder.Services.AddScoped<IdentitySeeder>();
+builder.Services.AddScoped<MoviesSeeder>();
+builder.Services.AddScoped<TicketSeeder>();
+builder.Services.AddScoped<WatchlistSeeder>();
+
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services
