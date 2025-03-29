@@ -1,16 +1,16 @@
-using System.Diagnostics;
-using CinemaApp.Models;
-using Microsoft.AspNetCore.Mvc;
-
 namespace CinemaApp.Controllers
 {
+    using System.Diagnostics;
+
+    using ViewModels;
+
+    using Microsoft.AspNetCore.Mvc;
+
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController()
         {
-            _logger = logger;
+
         }
 
         public IActionResult Index()
