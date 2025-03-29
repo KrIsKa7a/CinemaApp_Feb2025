@@ -1,7 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
-
-namespace CinemaApp.Data.Models
+﻿namespace CinemaApp.Data.Models
 {
+    using Microsoft.EntityFrameworkCore;
+
     [Comment("Movie watchlist for system user")]
     public class ApplicationUserMovie
     {

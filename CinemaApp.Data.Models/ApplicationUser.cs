@@ -1,13 +1,13 @@
-﻿using Microsoft.AspNetCore.Identity;
-
-namespace CinemaApp.Data.Models
+﻿namespace CinemaApp.Data.Models
 {
+    using Microsoft.AspNetCore.Identity;
+
     public class ApplicationUser : IdentityUser<Guid>
     {
         public ApplicationUser()
         {
             // ReSharper disable once VirtualMemberCallInConstructor
-            Id = Guid.NewGuid();
+            this.Id = Guid.NewGuid();
         }
 
         // ICollection<T> is used as a type to benefit from higher abstraction

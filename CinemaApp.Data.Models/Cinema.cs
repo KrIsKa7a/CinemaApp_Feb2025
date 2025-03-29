@@ -1,7 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
-
-namespace CinemaApp.Data.Models
+﻿namespace CinemaApp.Data.Models
 {
+    using Microsoft.EntityFrameworkCore;
+
     [Comment("Cinemas in the system")]
     public class Cinema
     {

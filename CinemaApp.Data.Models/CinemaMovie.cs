@@ -1,7 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
-
-namespace CinemaApp.Data.Models
+﻿namespace CinemaApp.Data.Models
 {
+    using Microsoft.EntityFrameworkCore;
+
     [Comment("Movies in a cinema with available tickets and schedule")]
     public class CinemaMovie
     {
